@@ -1,4 +1,6 @@
-﻿namespace math_game
+﻿using math_game.models;
+
+namespace math_game
 {
     internal class GameEngine
     {
@@ -34,7 +36,7 @@
                 }
 
             }
-            helpers.AddToHistory(score, "Addition      ");
+            helpers.AddToHistory(score, GameType.Addition);
             Console.WriteLine($"Game Over. Your final score is {score}. Press any key to go back to the main menu.");
             Console.ReadLine();
         }
@@ -70,7 +72,7 @@
                     Console.ReadLine();
                 }
             }
-            helpers.AddToHistory(score, "Subtraction   ");
+            helpers.AddToHistory(score, GameType.Subtraction);
             Console.WriteLine($"Game Over. Your final score is {score}. Press any key to go back to the main menu.");
             Console.ReadLine();
         }
@@ -83,7 +85,7 @@
             int firstNumber;
             int secondNumber;
 
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < 5; i++)
             {
                 Console.Clear();
                 Console.WriteLine(message);
@@ -97,7 +99,7 @@
                 {
                     Console.WriteLine("Your answer was correct! Type any key for the next question.");
                     Console.ReadLine();
-                    score += 33;
+                    score += 20;
                 }
                 else
                 {
@@ -105,9 +107,7 @@
                     Console.ReadLine();
                 }
             }
-            score = (score == 99) ? 100 : score;
-
-            helpers.AddToHistory(score, "Multiplication");
+            helpers.AddToHistory(score, GameType.Multiplication);
             Console.WriteLine($"Game Over. Your final score is {score}. Press any key to go back to the main menu.");
             Console.ReadLine();
         }
@@ -121,11 +121,11 @@
             int firstNumber;
             int secondNumber;
 
-            for (int i = 0; i < 2; i++)
+            for (int i = 0; i < 5; i++)
             {
                 do
                 {
-                    firstNumber = random.Next(0, 100);
+                    firstNumber = random.Next(1, 100);
                     secondNumber = random.Next(1, firstNumber);
                 } while (firstNumber % secondNumber != 0);
 
@@ -139,7 +139,7 @@
                 {
                     Console.WriteLine("Your answer was correct! Type any key for the next question.");
                     Console.ReadLine();
-                    score += 50;
+                    score += 20;
                 }
                 else
                 {
@@ -148,7 +148,7 @@
                 }
             }
 
-            helpers.AddToHistory(score, "Division      ");
+            helpers.AddToHistory(score, GameType.Division);
             Console.WriteLine($"Game Over. Your final score is {score}. Press any key to go back to the main menu.");
             Console.ReadLine();
         }
